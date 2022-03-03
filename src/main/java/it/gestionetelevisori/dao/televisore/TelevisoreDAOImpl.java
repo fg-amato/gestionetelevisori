@@ -66,47 +66,16 @@ public class TelevisoreDAOImpl implements TelevisoreDAO {
 
 	@Override
 	public List<Televisore> findByExample(Televisore input) throws Exception {
-		if (input == null)
-			throw new Exception("Valore di input non ammesso.");
-
-		boolean consideraMarca = !input.getMarca().isBlank();
-		boolean consideraModello = !input.getModello().isBlank();
-		boolean consideraCodice = !input.getCodice().isBlank();
-		boolean consideraPrezzo = (input.getPrezzo() == null ? false : true);
-		boolean consideraPollici = (input.getPollici() == null ? false : true);
-
 		List<Televisore> result = new ArrayList<>();
-
-		for (Televisore televisoreItem : DB_Mock.LISTA_TELEVISORI) {
-			if (consideraMarca) {
-				if (!televisoreItem.getMarca().startsWith(input.getMarca())) {
-					continue; // passa alla prossima iterazione
-				}
+		List<Televisore> televisoriInLista = this.list();
+		for (Televisore televisoreItem : televisoriInLista) {
+			if (televisoreItem.getMarca().startsWith(input.getMarca())
+					&& televisoreItem.getModello().startsWith(input.getModello())
+					&& televisoreItem.getCodice().startsWith(input.getCodice())
+					&& televisoreItem.getPrezzo() > input.getPrezzo()
+					&& televisoreItem.getPollici() > input.getPollici()) {
+				result.add(televisoreItem);
 			}
-
-			if (consideraModello) {
-				if (!televisoreItem.getModello().startsWith(input.getModello())) {
-					continue; // passa alla prossima iterazione
-				}
-			}
-
-			if (consideraCodice) {
-				if (!televisoreItem.getCodice().startsWith(input.getCodice())) {
-					continue; // passa alla prossima iterazione
-				}
-			}
-
-			if (consideraPollici) {
-				if (!(televisoreItem.getPrezzo() < input.getPrezzo())) {
-					continue; // passa alla prossima iterazione
-				}
-			}
-			if (consideraPrezzo) {
-				if (!(televisoreItem.getPollici() < input.getPollici())) {
-					continue; // passa alla prossima iterazione
-				}
-			}
-			result.add(televisoreItem);
 		}
 		return result;
 	}

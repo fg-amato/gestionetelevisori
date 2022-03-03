@@ -7,7 +7,7 @@ public class NumberUtility {
 			Integer inputNumber = Integer.parseInt(input);
 			return inputNumber;
 		} catch(NumberFormatException nfe) {
-			return null;
+			return 0;
 		}
 	}
 }
