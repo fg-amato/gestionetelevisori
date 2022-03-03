@@ -57,5 +57,6 @@ th, td {
 	</table>
 	<br>
 	<a href="PrepareInsertServlet">Inserisci</a>
+	<a href="searchForm.jsp">Home</a>
 </body>
 </html>

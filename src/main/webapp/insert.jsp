@@ -13,19 +13,19 @@
 		Inserire dati televisori<br>
 	<%}    %>
 	<form action="ExecuteInsertServlet" method="post">
-		<label for="nomeInputId">MARCA:</label><br>
+		<label for="marcaInputId">MARCA:</label><br>
 		<input type="text" name="marcaInput" id="marcaInputId">
 		<br>
-		<label for="cognomeInputId">MODELLO:</label><br>
+		<label for="modelloInputId">MODELLO:</label><br>
 		<input type="text" name="modelloInput" id="modelloInputId">
 		<br>
-		<label for="etaInputId">PREZZO:</label><br>
+		<label for="prezzoInputId">PREZZO:</label><br>
 		<input type="text" name="prezzoInput" id="prezzoInputId">
 		<br>
-		<label for="codiceFiscaleInputId">CODICE:</label><br>
+		<label for="codiceInputId">CODICE:</label><br>
 		<input type="text" name="codiceInput" id="codiceInputId">
 		<br>
-		<label for="mottoDiVitaInputId">POLLICI</label><br>
+		<label for="polliciInputId">POLLICI</label><br>
 		<input type="text" name="polliciInput" id="polliciInputId">
 		<br><br>
 		<input type="submit" value="INSERISCI">
