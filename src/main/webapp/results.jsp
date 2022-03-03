@@ -35,13 +35,20 @@ th, td {
 		</thead>
 
 		<%
-			List<Televisore> risultatoDaServlet = (List<Televisore>) request.getAttribute("listByExample");
-			for(Televisore item : risultatoDaServlet){
+		List<Televisore> risultatoDaServlet = (List<Televisore>) request.getAttribute("listByExample");
+		for (Televisore item : risultatoDaServlet) {
 		%>
 		<tr>
-			<td><%= item.getMarca() %></td>
-			<td><%= item.getModello() %></td>
-			<td><%= item.getPrezzo() %></td>
+			<td><%=item.getMarca()%></td>
+			<td><%=item.getModello()%></td>
+			<td><%=item.getPrezzo()%></td>
+			<td><a
+				href="VisualizzaDettaglioServlet?idDaInviareComeParametro=<%=item.getId()%>">Dettaglio</a>
+				<a
+				href="PrepareModificaServlet?idDaInviareComeParametro=<%=item.getId()%>">Modifica</a>
+				<a
+				href="PrepareDeleteServlet?idDaInviareComeParametro=<%=item.getId()%>">Cancella</a>
+			</td>
 		</tr>
 		<%
 		}
